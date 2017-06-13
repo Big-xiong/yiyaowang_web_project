@@ -1,0 +1,14 @@
+#过滤根目录下的doc文件夹
+/doc/
+
+#过滤node插件文件夹
+/node_modules/
+
+#过滤dist文件夹
+/dist/
+
+#过滤package-lock.json 文件
+/package-lock.json
+
+#过滤一类文件
+*.zip

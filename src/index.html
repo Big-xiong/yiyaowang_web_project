@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="lib/jquery-BxCarousel/jquery.BxCarousel.css">
+	<script src="lib/require.js" data-main="js/index"></script>
+	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+</head>
+<body>
+	<!-- 顶部登录注册 -->
+	<div id="top">
+		<p class="address">送货至 <i class="iconfont icon-jiantou"></i><span><a href="">广东</a></span></p>
+		<ol >
+			
+		</ol>
+		<ul class="smallnav">
+			<li><a href="">请登录</a> <a href="">注册</a></li>
+			<li><a href="">我的订单</a></li>
+			<li><a href="">我的1药网</a>
+				<span class="iconfont icon-jiantou arrow1"></span>
+				<ul>
+					<li class="my"><a href="">我的1药网</a>
+					<span class="iconfont icon-jiantou arrow1"></span>
+					</li>
+					<li><a href="">我的优惠券</a></li>
+					<li><a href="">我的收藏夹</a></li>
+					<li><a href="">商品评价</a></li>
+					<li><a href="">我的私人定制</a></li>
+				</ul>
+
+			</li>
+			<li><a href="">帮助中心</a></li>
+			<li><a href="">400-007-0958</a></li>
+			<li>
+				<div class="phone">
+					<span class="iconfont icon-shouji"></span>
+					<a href="">手机APP</a>
+					<ul>
+						<li>
+							<img src="img/td_code3.jpg" alt="">
+							<h6>1药网客户端</h6>
+							<h6>APP专享价更优惠</h6>
+						</li>
+						<li>
+							<img src="img/td_code2.jpg" alt="">
+							<h6>1诊客户端</h6>
+							<h6>电话问诊专家</h6>
+							<h6>3分钟连线专业医生</h6>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<a href=""><div id="smalltop"></div></a>
+	<!-- 搜索框部分 -->
+	<div id="search" class="clearfix">
+		<h1 class="logo"><img src="img/logo.png" alt=""></h1>
+		<span>好医，好药，好健康</span>
+		<div class="mainSearch">
+			<input type="text">
+			<button>搜索</button>
+			<ul>
+			</ul>
+		</div>
+		<span class="p2">首单返10元</span>
+		<img src="img/td_code1.jpg" alt="">
+		<span class="smallCar"><i>0</i><a href="">购物车</a></span>
+	</div>
+	<!-- 头部导航 -->
+	<header class="clearfix">
+		<nav class="vNav">
+			<ul>
+				<h3>所有商品分类</h3>
+				<li><a href="">中西药品</a></li>
+				<li><a href="">营养保健</a></li>
+				<li><a href="">维生素、钙剂</a></li>
+				<li><a href="">隐形眼镜</a></li>
+				<li><a href="">医疗器械、家电</a></li>
+				<li><a href="">成人用品</a></li>
+				<li><a href="">母婴专区</a></li>
+				<li><a href="">美妆个护</a></li>
+				<li><a href="">参茸花茶、休闲食品</a></li>
+				<li><a href="">体检、口腔诊疗</a></li>
+			</ul>
+		</nav>
+		<nav class="hNav clearfix">
+			<ul>
+				<li><a href="">首页</a></li>
+				<li><a href="">家庭常备药</a></li>
+				<li><a href="">乙肝</a></li>
+				<li><a href="">糖尿病</a></li>
+				<li><a href="">性功能障碍</a></li>
+				<li><a href="">高血压</a></li>
+				<li><a href="">网络医院</a></li>
+				<li><a href="">团购</a></li>
+				<li><a href="">掌上医药网</a></li>
+				<li><a href="">健康服务</a></li>
+			</ul>
+		</nav>
+		<section class="banner"></section>
+		<aside class="clearfix">
+			<div class="tab1 clearfix">
+				<ul class="title">
+					<li class="active">在线咨询</li>
+					<li>医生问诊</li>
+				</ul>
+				<ul class="content">
+					<li>
+						<section>
+							<a href="">男科></a>
+							<a href="">心脑血管></a>
+							<a href="">肿瘤></a>
+							<a href="">皮肤性病></a>
+							<a href="">滋补保健></a>
+						</section>
+						<section>
+							<a href="">妇科></a>
+							<a href="">肝胆科></a>
+							<a href="">消化科></a>
+							<a href="">眼耳鼻喉></a>
+							<a href="">散光验配></a>
+						</section>
+						<section>
+							<a href="">糖尿病></a>
+							<a href="">神经科></a>
+							<a href="">风湿骨科></a>
+							<a href="">呼吸科></a>
+							<a href="">医疗器械></a>
+						</section>
+					</li>
+					<li>
+						<img src="img/icon_3_light.png" alt="">
+						<img src="img/icon_4_light.png" alt="">
+						<a href="">综合门诊</a>
+						<a href="">儿科</a>
+					</li>
+				</ul>
+			</div>
+			<img src="img/ad.png" alt="">
+			<div class="tab2 clearfix">
+				<ul class="title">
+					<li>优质服务</li>
+					<li>公告</li>
+				</ul>
+				<ul class="content">
+					<li class="service">
+						<!-- <a href="">正品保证</a>
+						<a href="">品牌授权</a>
+						<a href="">药监认证</a>
+						<a href="">满79包邮</a> -->
+					</li>
+					<li class="board">
+						<a href=""><span>【公告】</span>防止电话诈骗</a>
+						<a href=""><span>【公告】</span>防止电话诈骗</a>
+						<a href=""><span>【公告】</span>防止电话诈骗</a>
+						<a href=""><span>【公告】</span>防止电话诈骗</a>
+						<a href=""><span>【公告】</span>防止电话诈骗</a>
+						<a href=""><span>【公告】</span>防止电话诈骗</a>
+						<a href=""><span>【公告】</span>防止电话诈骗</a>
+						<a href=""><span>【公告】</span>防止电话诈骗</a>
+					</li>
+				</ul>
+			</div>
+		</aside>
+	</header>
+	<!-- 热门产品 -->
+	<div id="hot" class="clearfix">
+		<span></span>
+		<img src="img/hot1.png" alt="">
+		<img src="img/hot2.png" alt="">
+		<img src="img/hot3.png" alt="">
+		<img src="img/hot4.png" alt="">
+	</div>
+	<a href=""><div id="smallmid"></div></a>
+	<main>	
+	</main>
+	<div id="links" class="clearfix">
+		<ul class="title">
+			<li>品牌旗舰店</li>
+			<li>友情链接</li>
+		</ul>
+		<ul class="content">
+			<li class="clearfix">
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+				<img src="" alt="">
+			</li>
+			<li class="clearfix">
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+				<a href="">凤凰中医</a>
+			</li>
+		</ul>
+	</div>
+	<footer class="clearfix">
+		<ul class="service clearfix">
+			<li>
+				<img src="img/jian.png" alt="">
+				<h3>药监认证</h3>
+				<p>获得国家资质，权威认证，值得信赖！</p>
+			</li>
+			<li>
+				<img src="img/shou.png" alt="">
+				<h3>品牌授权</h3>
+				<p>秉承行业高标准，确保正品可信！</p>
+			</li>
+			<li>
+				<img src="img/yin.png" alt="">
+				<h3>隐私包装</h3>
+				<p>保密包装，充分保护个人隐私！</p>
+			</li>
+			<li>
+				<img src="img/huo.png" alt="">
+				<h3>货到付款</h3>
+				<p>先收货后付款，购药更放心！</p>
+			</li>	
+		</ul>
+		<div class="mainlink clearfix">
+			<dl>
+				<dt>新手入门</dt>
+				<dd><a href="">常见问题</a></dd>
+				<dd><a href="">新会员注册</a></dd>
+				<dd><a href="">用户登录</a></dd>
+				<dd><a href="">找回密码</a></dd>
+			</dl>
+			<dl>
+				<dt>购物指南</dt>
+				<dd><a href="">购物流程</a></dd>
+				<dd><a href="">订单状态说明</a></dd>
+				<dd><a href="">隐私声明</a></dd>
+				<dd><a href="">发票制度</a></dd>
+			</dl>
+			<dl>
+				<dt>配送服务</dt>
+				<dd><a href="">范围、时间及说明</a></dd>
+				<dd><a href="">订单状态说明</a></dd>
+				<dd><a href="">商品验货及签收</a></dd>
+				<dd><a href="">门店自提</a></dd>
+			</dl>
+			<dl>
+				<dt>支付方式</dt>
+				<dd><a href="">货到付款</a></dd>
+				<dd><a href="">网上支付</a></dd>
+				<dd><a href="">银行转账</a></dd>
+				<dd><a href="">激活优惠券</a></dd>
+				<dd><a href="">优惠券的使用指南</a></dd>
+			</dl>
+			<dl>
+				<dt>售后服务</dt>
+				<dd><a href="">退换货政策</a></dd>
+				<dd><a href="">退换货流程</a></dd>
+				<dd><a href="">退款方式和时效</a></dd>
+				<dd><a href="">售后常见问题</a></dd>
+				<dd><a href="">正品保障</a></dd>
+				<dd><a href="">品牌售后</a></dd>
+			</dl>
+			<dl>
+				<dt>企业服务</dt>
+				<dd><a href="">供应商合作</a></dd>
+				<dd><a href="">供应商入口</a></dd>
+				<dd><a href="">商家入驻</a></dd>
+				<dd><a href="">市场合作</a></dd>
+			</dl>
+			<div class="msg">
+				<h3>400-007-0958</h3>
+				<p>周一到周日 09:00-21:00</p>
+				<p>(收取市话费)</p>	
+			</div>
+		</div>
+		<section>
+			<p>
+				<a href="">关于壹药网 |</a>
+				<a href="">互联网药品交易资格证 |</a>
+				<a href="">互联网药品信息服务资格证</a>
+			</p>
+			<p>
+				<a href="">连锁营业执照 |</a>
+				<a href="">保健食品卫生许可证 |</a>
+				<a href="">医疗器械许可证 |</a>
+				<a href="">食品流通许可证 |</a>
+				<a href="">GSP证书 |</a>
+				<a href="">粤ICP备12015869号</a>
+			</p>
+			<p>Copyright壹药网2010-2015,All Rights Reserved</p>
+		</section>
+	</footer>
+	<div id="sidebar">
+		<p><span>用户咨询</span></p>
+		<p><span>购物车</span></p>
+		<p><span>用户反馈</span></p>
+		<p><span>返回顶部</span></p>
+	</div>
+</body>
+</html>
