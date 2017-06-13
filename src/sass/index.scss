@@ -525,18 +525,19 @@ footer .mainlink dl{
 	float: left;
 	padding: 20px;
 }
+
+/**侧边栏**/
 #sidebar{width:40px;border: $border;height: 160px;position: fixed;right:50px;bottom: 50px;box-sizing: border-box;background-color: #fff;}
-#sidebar p{
+#sidebar .service{
+
 	&:hover{
+		i{display: none;}
 		span{display: block;}
 	}
 	height: 39px;
 	width: 39px;
 	border-bottom: $border;
-	&:last-child{
-		border:0;
-	}
-	span{
+	.text{
 		line-height: 18px;
 		background-color: #f00;
 		color: #fff;
@@ -547,5 +548,120 @@ footer .mainlink dl{
 		box-sizing: border-box;
 		&:last-child{border:0}
 		display: none;
+	}
+}
+#sidebar .service:nth-child(4){
+		border:0;
+	}
+#sidebar .car{
+	position: relative;
+	i{	
+		text-align: center;
+		line-height: 16px;
+		font-style: normal;
+		display: block;
+		width: 16px;
+		height: 16px;
+		color: #fff;
+		position: absolute;
+		border-radius: 50%;
+		background-color: #f00;
+		font-size: 12px;
+		top:2px;
+		right:2px;
+	}
+	&:hover{
+		&:after{
+			display: none;
+		}
+	}
+	&:after{
+		content:'';
+		display: block;
+		width: 40px;
+		height: 40px;
+		background:url(img/car.png) no-repeat center;
+		background-size: 26px 26px;
+	}
+}
+
+#siderbar ul {
+	.total{
+		margin-left: 10px;
+	}
+	.totalPrice{
+		margin-left: 10px;
+	}
+
+}
+#sidebar ul li{
+	position: relative;
+	border-bottom: $border;
+	padding: 10px 0;
+	padding-right: 10px;
+	img,p{
+		float: left;
+	}
+	/* .title{
+		&::after{
+			display: none;
+		}
+	} */
+	img{
+		padding-left: 10px;
+	}
+	p{
+		font-size: 12px;
+		border: 0;
+		padding-top: 4px;
+		&:nth-child(2){
+			width: 200px;
+			font-size: 12px;
+		}
+	}
+	.title{
+		margin-left: 20px;
+	}
+	.price{color: #f00;position: absolute;left:196px;top:30px}
+
+	input{
+		text-align: center;
+		float: right;
+		margin-top: 4px;
+		width: 30px;
+		border: $border;
+		margin-left: 4px;
+
+	}
+	button{
+		border: $border;
+		float: right;
+		margin-top: 4px;
+		margin-left: 4px;
+		background-color: #fff;
+	}
+}
+#sidebar .bottom{
+	border-bottom: 1px solid #f00;
+	border-left: 1px solid #f00;
+	border-right: 1px solid #f00;
+	font-size: 14px;
+	p{
+		line-height: 30px;
+		padding-left: 10px;
+	}
+	button{
+		width: 60px;
+		line-height: 20px;
+		background-color: #f00;
+		a{	
+			color: #fff;
+		}
+	}
+	.win{
+		position: absolute;
+		display: block;
+		overflow:auto;
+		height: 190px;
 	}
 }

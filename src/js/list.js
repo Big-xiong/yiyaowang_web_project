@@ -2,6 +2,7 @@ require(['config'],function(){
 	require(['jquery','common'],function($,com){
 		// 生成送货地址
 		var $top = $('#top');
+		var date = new Date();
 		$.ajax({
 			url:'../api/address.php',
 			dataType:'json',
@@ -91,7 +92,7 @@ require(['config'],function(){
 						}
 						goodsList.push(goods);
 					}
-					com.setCookie('goodsList',JSON.stringify(goodsList));
+					com.setCookie('goodsList',JSON.stringify(goodsList),date,'/');
 					total(goodsList);
 					
 					return false;
@@ -124,7 +125,7 @@ require(['config'],function(){
 			this.top = top;
 			this.left = left;
 			this.width = 400;
-			this.height = 200;
+			this.height = 240;
 			this.ele = ele;
 			this.msg = msg;
 			this.init(numb); 
@@ -132,7 +133,7 @@ require(['config'],function(){
 
 		CarList.prototype ={
 			init:function(numb){
-				var $carList = $('<ul/>').css({width:this.width,height:this.height,border:'1px solid #f00',position:'absolute',top:this.top,left:this.left,display:'none',backgroundColor:'#fff',overflow:'auto',paddingBottom:50});
+				var $carList = $('<ul/>').css({width:this.width,height:this.height,border:'1px solid #f00',position:'absolute',top:this.top,left:this.left,display:'none',backgroundColor:'#fff',overflow:'auto'});
 				var arr = this.msg;
 				var currP = this.ele;
 				var p = this.ele.parent();
@@ -153,7 +154,6 @@ require(['config'],function(){
 									<button class="addGoods">+</button>
 									<input type="text" value="${item.qty}">
 									<button class="subGoods">-</button>
-									
 								</li>
 
 							`;
@@ -161,7 +161,7 @@ require(['config'],function(){
 					));
 
 					// 生成底部总数和总价信息
-					var $li = $('<li/>').addClass('bottom').css({position:'fixed',bottom:18,right:107,height:30,width:373,backgroundColor:'#f7f7f7'});
+					var $li = $('<li/>').addClass('bottom').css({position:'fixed',bottom:17,right:89,height:30,width:390,backgroundColor:'#f7f7f7'});
 					var total = 0;
 					var totalPrice = 0;
 					for(var i=0;i<arr.length;i++){
@@ -172,7 +172,7 @@ require(['config'],function(){
 					}
 					$total = $('<p/>').html('共<span style="color:#f00">'+total+'</span>件商品').addClass('total').appendTo($li);
 					$totalPrice = $('<p/>').html('合计:<span style="color:#f00">'+totalPrice+'<span/>').addClass('totalPrice').appendTo($li);
-					var $calBtn = $('<button/>').html('<a>去结算<a/>').appendTo($li);
+					var $calBtn = $('<button/>').html('<a href="../html/shopCar.html">去结算<a/>').appendTo($li);
 					$li.appendTo($carList);					
 
 					$carList.css({display:'block'});
@@ -206,7 +206,7 @@ require(['config'],function(){
 						$total.find('span').text(total);
 						$sidebar.find('i').text(total);
 						$smallCar.find('i').text(total);
-						com.setCookie('goodsList',JSON.stringify(arr));
+						com.setCookie('goodsList',JSON.stringify(arr),date,'/');
 						totalPrice += currPri;
 						$totalPrice.find('span').text(totalPrice.toFixed(2));
 					}
@@ -241,7 +241,7 @@ require(['config'],function(){
 							$total.find('span').text(total);
 							$sidebar.find('i').text(total);
 							$smallCar.find('i').text(total);
-							com.setCookie('goodsList',JSON.stringify(arr));
+							com.setCookie('goodsList',JSON.stringify(arr),date,'/');
 							totalPrice -= currPri;
 							$totalPrice.find('span').text(totalPrice.toFixed(2));
 						}
@@ -260,7 +260,7 @@ require(['config'],function(){
 		}
 
 
-		new CarList(-60,-402,$sidebar.children().eq(1),goodsList,numb);
+		new CarList(-100,-402,$sidebar.children().eq(1),goodsList,numb);
 
 		// 获取商品总数
 		function total(array){

@@ -467,8 +467,6 @@ footer .mainlink dl {
     display: none; }
   #sidebar .service:hover span {
     display: block; }
-  #sidebar .service:last-child {
-    border: 0; }
   #sidebar .service .text {
     line-height: 18px;
     background-color: #f00;
@@ -481,6 +479,9 @@ footer .mainlink dl {
     display: none; }
     #sidebar .service .text:last-child {
       border: 0; }
+
+#sidebar .service:nth-child(4) {
+  border: 0; }
 
 #sidebar .car {
   position: relative; }
@@ -526,6 +527,8 @@ footer .mainlink dl {
 	} */ }
   #sidebar ul li img, #sidebar ul li p {
     float: left; }
+  #sidebar ul li img {
+    padding-left: 10px; }
   #sidebar ul li p {
     font-size: 12px;
     border: 0;
@@ -533,15 +536,43 @@ footer .mainlink dl {
     #sidebar ul li p:nth-child(2) {
       width: 200px;
       font-size: 12px; }
+  #sidebar ul li .title {
+    margin-left: 20px; }
   #sidebar ul li .price {
     color: #f00;
     position: absolute;
-    left: 154px;
+    left: 196px;
     top: 30px; }
   #sidebar ul li input {
+    text-align: center;
     float: right;
-    margin-top: 10px;
-    width: 40px; }
+    margin-top: 4px;
+    width: 30px;
+    border: 1px solid #f3f3f3;
+    margin-left: 4px; }
   #sidebar ul li button {
+    border: 1px solid #f3f3f3;
     float: right;
-    margin-top: 10px; }
+    margin-top: 4px;
+    margin-left: 4px;
+    background-color: #fff; }
+
+#sidebar .bottom {
+  border-bottom: 1px solid #f00;
+  border-left: 1px solid #f00;
+  border-right: 1px solid #f00;
+  font-size: 14px; }
+  #sidebar .bottom p {
+    line-height: 30px;
+    padding-left: 10px; }
+  #sidebar .bottom button {
+    width: 60px;
+    line-height: 20px;
+    background-color: #f00; }
+    #sidebar .bottom button a {
+      color: #fff; }
+  #sidebar .bottom .win {
+    position: absolute;
+    display: block;
+    overflow: auto;
+    height: 190px; }

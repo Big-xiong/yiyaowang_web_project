@@ -503,21 +503,17 @@ footer .mainlink dl{
 	padding: 20px;
 }
 
-/****侧边栏****/
+/**侧边栏**/
 #sidebar{width:40px;border: $border;height: 160px;position: fixed;right:50px;bottom: 50px;box-sizing: border-box;background-color: #fff;}
 #sidebar .service{
 
 	&:hover{
 		i{display: none;}
 		span{display: block;}
-		
 	}
 	height: 39px;
 	width: 39px;
 	border-bottom: $border;
-	&:last-child{
-		border:0;
-	}
 	.text{
 		line-height: 18px;
 		background-color: #f00;
@@ -531,6 +527,9 @@ footer .mainlink dl{
 		display: none;
 	}
 }
+#sidebar .service:nth-child(4){
+		border:0;
+	}
 #sidebar .car{
 	position: relative;
 	i{	
@@ -573,6 +572,7 @@ footer .mainlink dl{
 
 }
 #sidebar ul li{
+	position: relative;
 	border-bottom: $border;
 	padding: 10px 0;
 	padding-right: 10px;
@@ -584,6 +584,9 @@ footer .mainlink dl{
 			display: none;
 		}
 	} */
+	img{
+		padding-left: 10px;
+	}
 	p{
 		font-size: 12px;
 		border: 0;
@@ -593,15 +596,49 @@ footer .mainlink dl{
 			font-size: 12px;
 		}
 	}
-	.price{color: #f00;}
+	.title{
+		margin-left: 20px;
+	}
+	.price{color: #f00;position: absolute;left:196px;top:30px}
 
 	input{
+		text-align: center;
 		float: right;
-		margin-top: 10px;
-		width: 40px;
+		margin-top: 4px;
+		width: 30px;
+		border: $border;
+		margin-left: 4px;
+
 	}
 	button{
+		border: $border;
 		float: right;
-		margin-top: 10px;
+		margin-top: 4px;
+		margin-left: 4px;
+		background-color: #fff;
+	}
+}
+#sidebar .bottom{
+	border-bottom: 1px solid #f00;
+	border-left: 1px solid #f00;
+	border-right: 1px solid #f00;
+	font-size: 14px;
+	p{
+		line-height: 30px;
+		padding-left: 10px;
+	}
+	button{
+		width: 60px;
+		line-height: 20px;
+		background-color: #f00;
+		a{	
+			color: #fff;
+		}
+	}
+	.win{
+		position: absolute;
+		display: block;
+		overflow:auto;
+		height: 190px;
 	}
 }

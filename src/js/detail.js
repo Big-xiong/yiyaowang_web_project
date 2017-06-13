@@ -2,6 +2,8 @@ require(['config'],function(){
 	require(['jquery','common','BxZoom'],function($,com){
 		// 生成送货地址
 		var $top = $('#top');
+		var date = new Date();
+		// console.log(cookieExpires);
 		$.ajax({
 			url:'../api/address.php',
 			dataType:'json',
@@ -66,7 +68,6 @@ require(['config'],function(){
 		var $top = $sidebar.children().last();
 		//console.log($top[0].randomNum(100,200));
 		$top[0].onclick = function(){
-			console.log(666);
 			timer = setInterval(function(){com.toTop()});
 		}
 
@@ -114,7 +115,6 @@ require(['config'],function(){
 			
 			// 遍历数组中的对象看是否已经存在该商品
 			var num = $goodsNum.children('input').val()*1;
-			console.log(num);
 			for(var i = 0;i<goodsList.length;i++){
 				if(goodsList[i].id === currId ){
 					goodsList[i].qty += num ;
@@ -134,7 +134,7 @@ require(['config'],function(){
 
 			
 
-			com.setCookie('goodsList',JSON.stringify(goodsList));
+			com.setCookie('goodsList',JSON.stringify(goodsList),date,'/');
 
 			$cloneImg.animate({
 				left:$sidebar.children().eq(1).offset().left,
@@ -156,7 +156,7 @@ require(['config'],function(){
 			this.top = top;
 			this.left = left;
 			this.width = 400;
-			this.height = 200;
+			this.height = 240;
 			this.ele = ele;
 			this.msg = msg;
 			this.init(numb); 
@@ -164,10 +164,12 @@ require(['config'],function(){
 
 		CarList.prototype ={
 			init:function(numb){
-				var $carList = $('<ul/>').css({width:this.width,height:this.height,border:'1px solid #f00',position:'absolute',top:this.top,left:this.left,display:'none',backgroundColor:'#fff'});
+				var $carList = $('<ul/>').css({width:this.width,height:this.height,border:'1px solid #f00',position:'absolute',top:this.top,left:this.left,display:'none',backgroundColor:'#fff',overflow:'auto'});
 				var arr = this.msg;
 				var currP = this.ele;
 				var p = this.ele.parent();
+				var $total;
+				var $totalPrice;
 				//console.log(p);
 				$carList.appendTo(p);
 
@@ -180,10 +182,9 @@ require(['config'],function(){
 									<img src="${item.imgurl}" style="width:40px;height:40px">
 									<p class="title">${item.title}</p>
 									<p class="price">${item.price}</p>
-									<button>+</button>
+									<button class="addGoods">+</button>
 									<input type="text" value="${item.qty}">
-									<button>-</button>
-									
+									<button class="subGoods">-</button>
 								</li>
 
 							`;
@@ -191,7 +192,7 @@ require(['config'],function(){
 					));
 
 					// 生成底部总数和总价信息
-					var $li = $('<li/>').addClass('bottom').css({position:'absolute',bottom:0,left:0,height:30,width:390,backgroundColor:'#f7f7f7'});
+					var $li = $('<li/>').addClass('bottom').css({position:'fixed',bottom:17,right:89,height:30,width:390,backgroundColor:'#f7f7f7'});
 					var total = 0;
 					var totalPrice = 0;
 					for(var i=0;i<arr.length;i++){
@@ -200,74 +201,82 @@ require(['config'],function(){
 						var pricNum = str.slice(1)*1;
 						totalPrice += pricNum*arr[i].qty;
 					}
-					var $total = $('<p/>').html('共<span style="color:#f00">'+total+'</span>件商品').addClass('total').appendTo($li);
-					var $totalPrice = $('<p/>').html('合计:<span style="color:#f00">'+totalPrice+'<span/>').addClass('totalPrice').appendTo($li);
-					var $calBtn = $('<button/>').html('<a>去结算<a/>').appendTo($li);
-					$li.appendTo($carList);
-
+					$total = $('<p/>').html('共<span style="color:#f00">'+total+'</span>件商品').addClass('total').appendTo($li);
+					$totalPrice = $('<p/>').html('合计:<span style="color:#f00">'+totalPrice+'<span/>').addClass('totalPrice').appendTo($li);
+					var $calBtn = $('<button/>').html('<a href="../html/shopCar.html">去结算<a/>').appendTo($li);
+					$li.appendTo($carList);					
 
 					$carList.css({display:'block'});
-					var num = $carList.find('input').val();
+				}).on('mouseout',function(){
+					$carList.css({display:'none'});
+				});
 
-					// 加
-					$carList.find('button').eq(0).on('click',function(){
+				// 加
+				$carList.on('click','button',function(){
+					if($(this).attr('class') === 'addGoods'){
 						var currli = $(this).parent('li');
 						var currId = currli.data('id');
 						var currPri = currli.find('.price').text().slice(1)*1;
-						num++;
 						for(var i = 0;i<arr.length;i++){
-							if(arr[i].id === currId){
+							if(arr[i].id == currId){
 								arr[i].qty++;
-								//return;
 								//console.log(arr[i].qty);
+								currli.find('input').val(arr[i].qty);
+								break;
 							}
 						}
-
-						$carList.find('input').val(num);
 						var total =0;
+						var totalPrice = 0;
 						for(var j=0;j<arr.length;j++){
 							total += arr[j].qty;
+							var str = arr[j].price;
+							var pricNum = str.slice(1)*1;
+							totalPrice += pricNum*arr[j].qty;
 						}
-						
+						//console.log(total);
 						$total.find('span').text(total);
 						$sidebar.find('i').text(total);
 						$smallCar.find('i').text(total);
-						com.setCookie('goodsList',JSON.stringify(arr));
+						com.setCookie('goodsList',JSON.stringify(arr),date,'/');
 						totalPrice += currPri;
-						$totalPrice.find('span').text(totalPrice);
-					});
+						$totalPrice.find('span').text(totalPrice.toFixed(2));
+					}
+				});
 
-					//减
-					$carList.find('button').eq(1).on('click',function(){
+				// 减
+				$carList.on('click','button',function(){
+					if($(this).attr('class') === 'subGoods'){
 						var currli = $(this).parent('li');
 						var currId = currli.data('id');
 						var currPri = currli.find('.price').text().slice(1)*1;
-						if( $carList.find('input').val() <= 0){
+						if( currli.find('input').val() <= 0){
 							$carList.html('<li style="text-align:center;font-size:14px">您的购物车空空如也</li>');
 						}else{
-							num--;
 							for(var i = 0;i<arr.length;i++){
-								if(arr[i].id === currId){
+								if(arr[i].id == currId){
 									arr[i].qty--;
 									//return;
+									currli.find('input').val(arr[i].qty);
+									break;
 								}
 							}
-							$carList.find('input').val(num);
 							var total =0;
+							var totalPrice = 0;
 							for(var j=0;j<arr.length;j++){
 								total += arr[j].qty;
+								var str = arr[j].price;
+								var pricNum = str.slice(1)*1;
+								totalPrice += pricNum*arr[j].qty;
 							}
 							
 							$total.find('span').text(total);
 							$sidebar.find('i').text(total);
 							$smallCar.find('i').text(total);
-							com.setCookie('goodsList',JSON.stringify(arr));
+							com.setCookie('goodsList',JSON.stringify(arr),date,'/');
 							totalPrice -= currPri;
-							$totalPrice.find('span').text(totalPrice);
+							$totalPrice.find('span').text(totalPrice.toFixed(2));
 						}
-					});
-				}).on('mouseout',function(){
-					$carList.css({display:'none'});
+					}
 				});
 
 				$carList.on('mouseover',function(){
@@ -281,6 +290,9 @@ require(['config'],function(){
 			}
 		}
 
+
+		new CarList(-100,-402,$sidebar.children().eq(1),goodsList,numb);
+
 		// 获取商品总数
 		function total(array){
 			var total =0;
@@ -291,7 +303,5 @@ require(['config'],function(){
 			$smallCar.find('i').text(total);	
 		}
 		total(goodsList);
-
-		new CarList(-20,-402,$sidebar.children().eq(1),goodsList,numb);
 	});
 });

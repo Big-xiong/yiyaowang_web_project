@@ -210,29 +210,169 @@ $border:1px solid #f3f3f3;
 /**搜索 **/
 /* #smalltop{background:url(../img/smalltop.jpg) no-repeat center;height:60px;margin:0 auto;} */
 #search .logo{padding-left:$margin;float:left;}
-#search input{ outline:none; height:36px;border:2px solid #0083CE;float: left;box-sizing:border-box;width: 406px;margin-top: 35px;padding-left: 4px;}
-#search button{float:left;height: 36px;background-color:#0083CE;color: #fff;border:0;width: 96px;margin-top: 35px;outline: none;}
 #search span{float: left;color:$mc;margin-top: 52px;margin-left: 15px;}
-#search>img{width: 80px;border: 1px solid #EEEEEE;margin-top: 35px;float: left;}
-#search .p2{width: 24px;float: left;font-size:14px;padding: 2px;border:1px solid #eee;height:77px;line-height: 14px;text-align: center;border-right:0;margin-top: 35px;margin-left: 30px;}
-#search .smallCar{position:relative;width: 132px;height: 36px;border:1px solid #eee;float: left;background-color: #FAFAFA;text-align: center;line-height: 36px;font-size: 14px;margin-left: 18px;margin-top: 35px;}
-#search .smallCar:before{
-	content:'';
-	width: 40px;
-	height: 40px;
-	background-image: url('../css/img/car.png');
-	background-repeat:no-repeat;
-	background-size:20px 20px;
-	background-position:10px 6px;
-	display: block;
-	position: absolute;
-	top:0;
+#search .buyStep{
+	margin-left: 742px;
+	.current{
+		color: #fff;
+		background:url(../img/followstep.png) no-repeat top right;
+		background-color: $mc;
+	}
+	li{
+		margin-top: 46px;
+		padding:0 50px;
+		background-color: #f3f3f3;
+		line-height: 30px;
+		text-align: center;
+		color: #a5a5a5;
+		float: left;
+		font-size: 14px;
+		&:nth-child(2){
+			background:url(../img/followstep.png) no-repeat top right;
+			background-color: #f3f3f3;
+		}
+	}
+
 }
-#search .smallCar i{font-style: normal;color: #fff;display: block;width: 18px;height: 18px;background-color: #f00;border-radius: 50%;position: absolute;text-align:center; line-height:18px;left:20px;top:2px;font-size: 12px;}
-#search .mainSearch{float: left;width: 503px;margin-left: 50px;}
-#search .mainSearch ul{font-size: 12px;margin-top: 10px;float: left;}
-#search .mainSearch ul li{float: left;}
-#search .mainSearch ul li a{padding: 0 4px;}
+
+/**购物车主体部分**/
+main .bigtitle{
+	margin-left: $margin;
+	li{
+		font-size: 20px;
+		float: left;
+		&:nth-child(2){
+			margin-left: 20px;
+		}
+	}
+	.active{
+		color:$mc;
+		border-bottom: 1px solid $mc;
+	}
+}
+main .content{
+	.type{
+		font-size: 14px;
+		ul{
+			width: 1190px;
+			margin-left: $margin;
+			background-color: #f3f3f3;
+		}
+		li{
+			padding:10px 20px;
+			float: left;
+			width: 80px;
+			text-align: center;
+			&:first-child{
+				width: 540px;
+			}
+			&:nth-child(3){
+				width: 140px;
+			}
+			&:last-child{
+				width: 100px;
+			}
+		}
+	}
+	.car{
+		float: left;
+		display: block;
+		margin-left: $margin;
+		ul{
+
+		}
+		li{
+			padding:10px 14px;
+			border-bottom: $border;
+			img{
+				float: left;
+			}
+			p{
+				padding-left: 10px;
+				float: left;
+			}
+			.smallTol{
+				float: left;
+				display: block;
+				padding-top: 20px;
+				color:#f00;
+				width: 80px;
+				margin-left: 70px;
+			}
+			.del{
+				float: left;
+				color: #000;
+				padding-top: 20px;
+				margin-left: 64px;
+			}
+			.title{
+				width: 400px;
+				line-height: 20px;
+				padding-top: 20px;
+				text-align: center;
+			}
+			.price{
+				padding-top: 20px;
+				width: 200px;
+				text-align: center;
+				margin-left: 20px;
+				margin-right: 10px;
+			}
+			button{
+				margin-top: 20px;
+				float: left;
+				border: $border;
+				background-color: #fff;
+				margin-left: 4px;
+			}
+			input{
+				margin-left: 4px;
+				width: 40px;
+				border: $border;
+				margin-top: 20px;
+				float: left;
+				text-align: center;
+			}
+		}
+		.bottom{
+			line-height: 40px;
+			p{
+				margin-left: 60px;
+			}
+			.totalPrice{
+				span{
+					font-weight: bold;
+				}
+			}
+			button{
+				margin-top: 0;
+				margin-left: 30px;
+				float: right;
+				width: 100px;
+				font-size: 18px;
+				font-weight: bold;
+				border: 0;
+				border-bottom: 2px solid #aa0000;
+				background-color: #f00;
+				border-radius: 6px;
+				a{
+					display: block;
+					color: #fff;
+					line-height: 30px;
+				}
+			}
+			.goBuy{
+				border: 1px solid #f00;
+				a{
+					color: #f00;
+					font-weight: normal;	
+				}
+				background-color: #fff;
+			}
+		}
+	}
+}
+
 
 /**服务**/
 footer{margin-top: 40px;}

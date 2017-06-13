@@ -621,6 +621,7 @@ footer .mainlink dl {
     footer .mainlink dl dd a:hover {
       text-decoration: underline; }
 
+/**侧边栏**/
 #sidebar {
   width: 40px;
   border: 1px solid #f3f3f3;
@@ -631,15 +632,15 @@ footer .mainlink dl {
   box-sizing: border-box;
   background-color: #fff; }
 
-#sidebar p {
+#sidebar .service {
   height: 39px;
   width: 39px;
   border-bottom: 1px solid #f3f3f3; }
-  #sidebar p:hover span {
+  #sidebar .service:hover i {
+    display: none; }
+  #sidebar .service:hover span {
     display: block; }
-  #sidebar p:last-child {
-    border: 0; }
-  #sidebar p span {
+  #sidebar .service .text {
     line-height: 18px;
     background-color: #f00;
     color: #fff;
@@ -649,5 +650,102 @@ footer .mainlink dl {
     width: 39px;
     box-sizing: border-box;
     display: none; }
-    #sidebar p span:last-child {
+    #sidebar .service .text:last-child {
       border: 0; }
+
+#sidebar .service:nth-child(4) {
+  border: 0; }
+
+#sidebar .car {
+  position: relative; }
+  #sidebar .car i {
+    text-align: center;
+    line-height: 16px;
+    font-style: normal;
+    display: block;
+    width: 16px;
+    height: 16px;
+    color: #fff;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #f00;
+    font-size: 12px;
+    top: 2px;
+    right: 2px; }
+  #sidebar .car:hover:after {
+    display: none; }
+  #sidebar .car:after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(img/car.png) no-repeat center;
+    background-size: 26px 26px; }
+
+#siderbar ul .total {
+  margin-left: 10px; }
+
+#siderbar ul .totalPrice {
+  margin-left: 10px; }
+
+#sidebar ul li {
+  position: relative;
+  border-bottom: 1px solid #f3f3f3;
+  padding: 10px 0;
+  padding-right: 10px;
+  /* .title{
+		&::after{
+			display: none;
+		}
+	} */ }
+  #sidebar ul li img, #sidebar ul li p {
+    float: left; }
+  #sidebar ul li img {
+    padding-left: 10px; }
+  #sidebar ul li p {
+    font-size: 12px;
+    border: 0;
+    padding-top: 4px; }
+    #sidebar ul li p:nth-child(2) {
+      width: 200px;
+      font-size: 12px; }
+  #sidebar ul li .title {
+    margin-left: 20px; }
+  #sidebar ul li .price {
+    color: #f00;
+    position: absolute;
+    left: 196px;
+    top: 30px; }
+  #sidebar ul li input {
+    text-align: center;
+    float: right;
+    margin-top: 4px;
+    width: 30px;
+    border: 1px solid #f3f3f3;
+    margin-left: 4px; }
+  #sidebar ul li button {
+    border: 1px solid #f3f3f3;
+    float: right;
+    margin-top: 4px;
+    margin-left: 4px;
+    background-color: #fff; }
+
+#sidebar .bottom {
+  border-bottom: 1px solid #f00;
+  border-left: 1px solid #f00;
+  border-right: 1px solid #f00;
+  font-size: 14px; }
+  #sidebar .bottom p {
+    line-height: 30px;
+    padding-left: 10px; }
+  #sidebar .bottom button {
+    width: 60px;
+    line-height: 20px;
+    background-color: #f00; }
+    #sidebar .bottom button a {
+      color: #fff; }
+  #sidebar .bottom .win {
+    position: absolute;
+    display: block;
+    overflow: auto;
+    height: 190px; }
