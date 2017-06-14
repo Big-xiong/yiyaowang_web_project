@@ -283,6 +283,54 @@
 #search .mainSearch ul li a {
   padding: 0 4px; }
 
+#search .mouting {
+  width: 100%;
+  z-index: 2000;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
+  #search .mouting .vNav {
+    width: 180px;
+    float: left;
+    margin-left: 145px;
+    color: #fff;
+    position: absolute;
+    z-index: 1000; }
+    #search .mouting .vNav:hover ul {
+      height: 400px; }
+      #search .mouting .vNav:hover ul li:before {
+        display: block; }
+    #search .mouting .vNav h3 {
+      background-color: #0083CE;
+      font-size: 16px;
+      padding-left: 14px;
+      line-height: 36px; }
+    #search .mouting .vNav ul {
+      height: 0px;
+      background-color: #299AEF;
+      overflow: hidden;
+      transition: height 2s; }
+      #search .mouting .vNav ul li {
+        position: relative; }
+        #search .mouting .vNav ul li img {
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          left: 8px;
+          top: 6px; }
+        #search .mouting .vNav ul li a {
+          font-size: 14px;
+          color: #fff;
+          padding-left: 48px;
+          line-height: 40px; }
+  #search .mouting .mainSearch {
+    margin-left: 325px; }
+    #search .mouting .mainSearch input {
+      margin-top: 0; }
+    #search .mouting .mainSearch button {
+      margin-top: 0; }
+
 /**导航栏**/
 header {
   position: relative; }

@@ -261,6 +261,10 @@ main .content .car {
       color: #000;
       padding-top: 20px;
       margin-left: 64px; }
+      main .content .car li .del:hover {
+        color: #f00;
+        text-decoration: underline;
+        cursor: pointer; }
     main .content .car li .title {
       width: 400px;
       line-height: 20px;
@@ -286,6 +290,7 @@ main .content .car {
       float: left;
       text-align: center; }
   main .content .car .bottom {
+    border: 1px solid #f3f3f3;
     line-height: 40px; }
     main .content .car .bottom p {
       margin-left: 60px; }
@@ -317,7 +322,17 @@ main .content .car {
 footer {
   margin-top: 40px; }
 
+footer .ad {
+  font-size: 24px;
+  text-align: center;
+  width: 1188px;
+  height: 500px;
+  margin-top: 80px;
+  border: 1px solid #f3f3f3;
+  margin-left: 124px; }
+
 footer section {
+  margin-top: 40px;
   text-align: center; }
   footer section p {
     line-height: 30px;

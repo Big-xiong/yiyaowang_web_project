@@ -224,7 +224,7 @@ require(['config'],function(){
 						totalPrice += pricNum*arr[i].qty;
 					}
 					$total = $('<p/>').html('共<span style="color:#f00">'+total+'</span>件商品').addClass('total').appendTo($li);
-					$totalPrice = $('<p/>').html('合计:<span style="color:#f00">'+totalPrice+'<span/>').addClass('totalPrice').appendTo($li);
+					$totalPrice = $('<p/>').html('合计:<span style="color:#f00">'+totalPrice.toFixed(2)+'<span/>').addClass('totalPrice').appendTo($li);
 					var $calBtn = $('<button/>').html('<a href="../html/shopCar.html">去结算<a/>').appendTo($li);
 					$li.appendTo($carList);					
 

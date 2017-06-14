@@ -102,7 +102,7 @@ require(['config'],function(){
 				));
 
 				// 生成底部总数和总价信息
-				var $li = $('<li/>').addClass('bottom').css({position:'fixed',bottom:0,left:125,height:30,width:1161,backgroundColor:'#f7f7f7'});
+				var $li = $('<li/>').addClass('bottom').css({position:'absolute',left:124,height:30,width:1160,backgroundColor:'#f7f7f7'});
 				var total = 0;
 				var totalPrice = 0;
 				for(var i=0;i<arr.length;i++){
@@ -114,7 +114,7 @@ require(['config'],function(){
 
 				// 生成底部结构
 				$total = $('<p/>').html('共<span style="color:#f00">'+total+'</span>件商品').addClass('total').appendTo($li);
-				$totalPrice = $('<p/>').html('合计:<span style="color:#f00">￥'+totalPrice+'<span/>').addClass('totalPrice').appendTo($li);
+				$totalPrice = $('<p/>').html('合计:<span style="color:#f00">￥'+totalPrice.toFixed(2)+'<span/>').addClass('totalPrice').appendTo($li);
 				var $calBtn = $('<button/>').html('<a>去结算</a>').appendTo($li);
 				var $goBuy = $('<button/>').html('<a href="../index.html">继续购物</a>').appendTo($li).addClass('goBuy');
 				$li.appendTo($carList);
@@ -168,8 +168,8 @@ require(['config'],function(){
 						var currli = $(this).parent('li');
 						var currId = currli.data('id');
 						var currPri = currli.find('.price').text().slice(1)*1;
-						if( currli.find('input').val() <= 0){
-							$carList.html('<li style="text-align:center;font-size:14px">您的购物车空空如也</li>');
+						if( currli.find('input').val() <= 1){
+							$('subGoods').attr({disabled:''});
 						}else{
 
 							// 减少当前商品的数量
@@ -209,9 +209,30 @@ require(['config'],function(){
 					}
 				});
 
+				// 删除商品
+				$('.del').on('click',function(){
+					var currli = $(this).parent('li').remove();
+					var currId = currli.data('id');
+					for(var i = 0;i<arr.length;i++){
+						if(arr[i].id == currId){
+							arr.splice(i,1);
+						}
+					}
+					com.setCookie('goodsList',JSON.stringify(arr),date,'/');
+				});
+
 				return this;
 			}
 		}
 		new CarList(240,124,$car,goodsList);
+
+		$(window).on('scroll',function(){
+			var len = goodsList.length-7;
+			if(window.scrollY <=len*101+226 ){
+				$('.bottom').css({position:'fixed',bottom:0,left:124,});
+			}else if(window.scrollY >len*101+226 ){
+				$('.bottom').css({position:'absolute',left:124,bottom:-$('.bottom').parent().outerHeight() + 500});
+			}
+		});	
 	});
 });

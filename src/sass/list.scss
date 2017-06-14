@@ -233,6 +233,67 @@ $border:1px solid #f3f3f3;
 #search .mainSearch ul{font-size: 12px;margin-top: 10px;float: left;}
 #search .mainSearch ul li{float: left;}
 #search .mainSearch ul li a{padding: 0 4px;}
+#search .mouting{
+	width: 100%;
+	z-index: 2000;
+	position: fixed;
+	top:0;
+	background-color: #fff;
+	box-shadow: 0 1px 1px rgba(0,0,0,.2);
+	.vNav{
+		width: 180px;
+		float: left;
+		margin-left: 145px;
+		color: #fff;
+		position: absolute;
+		z-index: 1000;
+		&:hover{
+			ul{
+				height: 400px;
+				li:before{
+					display: block;
+				}
+			}
+		}
+		h3{
+			background-color: $mc;
+			font-size: 16px;
+			padding-left:14px;
+			line-height: 36px;
+		}
+		ul{
+			height: 0px;
+			background-color: $subc;
+			overflow: hidden;
+			transition: height 2s;
+			li{
+				position: relative;
+				img{
+					width: 30px;
+					height: 30px;
+					position: absolute;
+					left:8px;
+					top:6px;
+				}
+				a{
+					font-size: 14px;
+					color: #fff;
+					padding-left: 48px;
+					line-height: 40px;
+				}
+			}
+		}
+	}
+	.mainSearch{
+		margin-left: 325px;
+		input{
+			margin-top: 0;
+		}
+		button{
+			margin-top: 0;
+		}
+	}
+}
 
 /**导航栏**/
 header{position: relative;}

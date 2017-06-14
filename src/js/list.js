@@ -171,7 +171,7 @@ require(['config'],function(){
 						totalPrice += pricNum*arr[i].qty;
 					}
 					$total = $('<p/>').html('共<span style="color:#f00">'+total+'</span>件商品').addClass('total').appendTo($li);
-					$totalPrice = $('<p/>').html('合计:<span style="color:#f00">'+totalPrice+'<span/>').addClass('totalPrice').appendTo($li);
+					$totalPrice = $('<p/>').html('合计:<span style="color:#f00">'+totalPrice.toFixed(2)+'<span/>').addClass('totalPrice').appendTo($li);
 					var $calBtn = $('<button/>').html('<a href="../html/shopCar.html">去结算<a/>').appendTo($li);
 					$li.appendTo($carList);					
 
@@ -272,5 +272,17 @@ require(['config'],function(){
 			$smallCar.find('i').text(total);	
 		}
 		total(goodsList);
+
+		// 吸顶搜索导航
+		var $Mouting = $('<div/>').addClass('mouting').css({display:'none'}).appendTo('#search');
+		$('.vNav').clone().appendTo($Mouting);
+		$('.mainSearch').clone().appendTo($Mouting);
+		$(window).on('scroll',function(){
+			if(window.scrollY >= 164){
+				$Mouting.css({display:'block'});
+			}else{
+				$Mouting.css({display:'none'});
+			}
+		});
 	});
 });
