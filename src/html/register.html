@@ -3,8 +3,43 @@
 <head>
 	<meta charset="UTF-8">
 	<title>用户注册</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/register.css">
+	<script src="../lib/require.js" data-main="../js/register"></script>
 </head>
 <body>
-	
+	<!-- 搜索框部分 -->
+	<div id="search" class="clearfix">
+		<h1 class="logo"><img src="../img/logo.png" alt=""></h1>
+	</div>
+
+	<!-- 输入框部分 -->
+	<main>
+		<section class="top">
+			<p>	Hi,欢迎注册!</p>
+			<span>我已经注册，现在就<a href="login.html">登录</a></span>
+		</section>
+		<section class="msg">
+			<form action="">
+				<input type="text" class="phone" placeholder="手机号"><br>
+				<!-- <i>不能为空</i> -->
+				<input type="password" class="psw" placeholder="登录密码"><br>
+				<input type="password" class="rewrite" placeholder="确认密码" disabled=""><br>
+				<label for="read">
+					<input type="checkbox" id="read" checked="">
+					我已阅读并同意
+					<a href="">《1药网服务协议》</a>
+				</label><br>
+				<button type="submit">立即注册</button>
+			</form>
+			<p>
+				<span>使用合作伙伴帐号登录：</span><br>
+				<a href="" class="yhd"></a>
+				<a href="" class="zfb"></a>
+				<a href="" class="qq"></a>
+				<a href="" class="sina"></a>
+			</p>
+		</section>
+	</main>
 </body>
 </html>

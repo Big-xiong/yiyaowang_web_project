@@ -1,0 +1,156 @@
+#search .logo {
+  padding-left: 248px;
+  float: left; }
+
+main {
+  position: relative;
+  background: url(../img/r_bg_02.png) no-repeat right bottom;
+  padding: 20px 40px;
+  width: 900px;
+  border-top: 2px solid #0083CE;
+  margin-left: 248px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+
+main .top p {
+  float: left;
+  font-size: 20px;
+  line-height: 30px; }
+
+main .top span {
+  margin-left: 620px;
+  font-size: 12px; }
+  main .top span a {
+    color: #0083CE; }
+
+form p {
+  position: absolute;
+  font-size: 12px;
+  color: #f00;
+  left: 46px; }
+
+.p1 {
+  top: 102px; }
+
+.p2 {
+  top: 168px; }
+
+.p3 {
+  top: 168px; }
+
+.p5 {
+  top: 232px;
+  color: #ddd; }
+
+.p6 {
+  top: 232px; }
+
+.p7 {
+  top: 232px; }
+
+main .msg {
+  padding-top: 20px; }
+  main .msg input {
+    padding-left: 38px;
+    margin-top: 22px;
+    margin-left: 40px;
+    width: 300px;
+    height: 40px;
+    font-size: 14px;
+    border: 1px solid #f3f3f3; }
+  main .msg button {
+    margin-left: 40px;
+    width: 302px;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #0083CE;
+    text-align: center;
+    line-height: 40px;
+    border: 0; }
+  main .msg label a {
+    color: #0083CE; }
+  main .msg #read {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 14px;
+    height: 14px; }
+  main .msg .phone {
+    background: url(../img/regest.png) no-repeat 0 0;
+    background-position: 9px -112px; }
+  main .msg .psw {
+    background: url(../img/regest.png) no-repeat 0 0;
+    background-position: 9px -143px; }
+  main .msg .rewrite {
+    background: url(../img/regest.png) no-repeat 0 0;
+    background-position: 9px -143px; }
+  main .msg i, main .msg .pswicon1, main .msg .pswicon2 {
+    line-height: 40px;
+    position: absolute;
+    left: 349px;
+    top: 82px;
+    font-style: normal;
+    display: block;
+    background: url(../img/regest.png) no-repeat 0 0;
+    background-position: right -45px;
+    padding-right: 26px;
+    font-size: 12px; }
+  main .msg .pswicon1, main .msg .pswicon2 {
+    display: none;
+    width: 40px;
+    height: 14px;
+    top: 166px;
+    left: 400px;
+    background: url(../img/regest.png) no-repeat 0 0; }
+  main .msg .pswicon2 {
+    top: 230px;
+    left: 400px; }
+  main .msg p {
+    margin-top: 20px;
+    margin-left: 40px;
+    line-height: 30px;
+    padding-bottom: 36px; }
+    main .msg p a {
+      float: left;
+      display: block;
+      width: 39px;
+      height: 39px;
+      margin-right: 20px;
+      background: url(../img/img_zhifu.png) no-repeat top left; }
+    main .msg p .yhd:hover {
+      background-position: 0 -52px; }
+    main .msg p .zfb {
+      background-position: -48px 0; }
+      main .msg p .zfb:hover {
+        background-position: -48px -52px; }
+    main .msg p .qq {
+      background-position: -96px 0; }
+      main .msg p .qq:hover {
+        background-position: -96px -52px; }
+    main .msg p .sina {
+      background-position: -144px 0; }
+      main .msg p .sina:hover {
+        background-position: -144px -52px; }
+
+main .safe {
+  position: absolute;
+  top: 196px;
+  left: 272px;
+  font-size: 12px; }
+  main .safe span {
+    float: left;
+    display: block;
+    width: 30px;
+    text-align: center;
+    background-color: #5e5e5e;
+    color: #fff;
+    margin-left: 1px; }
+  main .safe .p4 {
+    margin-top: 2px;
+    background-color: #fff;
+    width: 48px;
+    float: left;
+    margin-right: 4px;
+    margin-bottom: 0;
+    line-height: 12px;
+    color: #5e5e5e;
+    line-height: 12px; }
