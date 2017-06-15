@@ -5,19 +5,30 @@ require(['config'],function(){
 		var $rewrite = $('.rewrite');
 		var $form = $('form');
 
+		// 手机状态
+		$phone.after($('<span/>').addClass('pswicon3'));
 		$phone.on('blur',function(){
 			//console.log(666);
 			var phone = $('.phone').val();
 			if(phone == ''){
 				$phone.after($('<i/>').text('不能为空'));
+				$('.pswicon3').css({display:'none'});
+
+				return false;
+
 			}else if(!/^1[3-57-9]\d{9}$/.test(phone)){
 				$phone.after($('<p/>').text('手机号格式不正确').addClass('p1'));
+				$('.pswicon3').css({display:'none'});
+
+				return false;
 			}
+			$('.pswicon3').css({display:'block'});
 		}).on('focus',function(){
 			$('i').remove();
 			$('.p1').remove();
 		});
 		
+		// 密码状态
 		$psw.after($('<span/>').addClass('pswicon1'));
 		$psw.on('blur',function(){
 			var psw  = $('.psw').val();
@@ -65,6 +76,7 @@ require(['config'],function(){
 			
 			// keydown的时候字符还没出来，改用keyup
 			$(window).on('keyup',function(){
+				$('.p3').remove();
 				var psw  = $('.psw').val();
 				if(psw == ''){
 					$('.safe').css({display:'none'});
@@ -94,10 +106,10 @@ require(['config'],function(){
 					$('.safe').css({display:'block'});
 					$rewrite.attr('disabled',false);
 				}
-				$('.p3').remove();
 			});
 		});
 
+		// 确认密码
 		$rewrite.after($('<span/>').addClass('pswicon2'));
 		$rewrite.on('focus',function(){
 			$('.pswicon2').css({display:'none'});
@@ -123,6 +135,42 @@ require(['config'],function(){
 			if(rewrite == psw){
 				$('.pswicon2').css({display:'block'});
 			}
+		});
+
+		// 勾选阅读我
+		$('#read').after($('<p/>').text('请勾选1药网服务协议').addClass('p8'));
+		$('#read').on('click',function(){
+			if(!$('#read').is(':checked')){
+				$('.p8').css({display:'block'});
+			}else{
+				$('.p8').css({display:'none'});
+			}	
+		});
+
+		// 点击注册按钮
+		var $regBtn = $('.reg');
+		$regBtn.on('click',function(){
+			if( $('.pswicon1').css('display') == 'block' && $('.pswicon2').css('display') == 'block' && $('.pswicon3').css('display') == 'block' && $('#read').is(':checked')){
+				$.ajax({
+					url:'../api/reg.php',
+					data:{
+						phone:$('.phone').val(),
+						password:$('.psw').val()
+					},
+					success:function(res){
+						console.log(res);
+						if(res === 'ok'){
+							alert('恭喜您注册成功');	
+						}else if(res === 'no'){
+							alert('该手机号已被注册');
+						}
+					}
+				});
+			}else{
+				alert('请完善您的信息');
+			}
+
+			return false;
 		});
 	});
 });

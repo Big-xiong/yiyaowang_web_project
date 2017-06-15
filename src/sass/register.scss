@@ -47,6 +47,10 @@ form p{
 .p7{
 	top:232px;
 }
+.p8{
+	display: none;
+	top:268px;
+}
 main .msg{
 	padding-top: 20px;
 	input{
@@ -60,7 +64,7 @@ main .msg{
 	}
 	button{
 		margin-left: 40px;
-		width: 302px;
+		width: 342px;
 		height: 40px;
 		font-size:16px;
 		color: #fff;
@@ -117,7 +121,11 @@ main .msg{
 
 		@extend .pswicon1;
 		top:230px;
-		left:400px;
+	}
+	.pswicon3{
+
+		@extend .pswicon1;
+		top:98px;
 	}
 	p{
 		margin-top: 20px;

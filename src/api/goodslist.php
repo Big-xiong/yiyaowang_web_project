@@ -14,5 +14,6 @@
 	echo json_encode($msg,JSON_UNESCAPED_UNICODE);
 
 	//echo "我是php,我可以同步了，我已经同步了";
-
+	//关闭连接
+	$conn->close();
 ?>

@@ -47,6 +47,10 @@ form p {
 .p7 {
   top: 232px; }
 
+.p8 {
+  display: none;
+  top: 268px; }
+
 main .msg {
   padding-top: 20px; }
   main .msg input {
@@ -59,7 +63,7 @@ main .msg {
     border: 1px solid #f3f3f3; }
   main .msg button {
     margin-left: 40px;
-    width: 302px;
+    width: 342px;
     height: 40px;
     font-size: 16px;
     color: #fff;
@@ -83,7 +87,7 @@ main .msg {
   main .msg .rewrite {
     background: url(../img/regest.png) no-repeat 0 0;
     background-position: 9px -143px; }
-  main .msg i, main .msg .pswicon1, main .msg .pswicon2 {
+  main .msg i, main .msg .pswicon1, main .msg .pswicon2, main .msg .pswicon3 {
     line-height: 40px;
     position: absolute;
     left: 349px;
@@ -94,7 +98,7 @@ main .msg {
     background-position: right -45px;
     padding-right: 26px;
     font-size: 12px; }
-  main .msg .pswicon1, main .msg .pswicon2 {
+  main .msg .pswicon1, main .msg .pswicon2, main .msg .pswicon3 {
     display: none;
     width: 40px;
     height: 14px;
@@ -102,8 +106,9 @@ main .msg {
     left: 400px;
     background: url(../img/regest.png) no-repeat 0 0; }
   main .msg .pswicon2 {
-    top: 230px;
-    left: 400px; }
+    top: 230px; }
+  main .msg .pswicon3 {
+    top: 98px; }
   main .msg p {
     margin-top: 20px;
     margin-left: 40px;
