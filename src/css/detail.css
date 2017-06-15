@@ -348,7 +348,7 @@ main .goodsMsg {
   float: left;
   margin-left: 124px; }
   main .goodsMsg .goodsPic {
-    padding-bottom: 10px;
+    border: 1px solid #f3f3f3;
     float: left;
     width: 300px;
     height: 300px; }
@@ -441,7 +441,9 @@ main .goodsMsg {
 .picDetail {
   margin-left: 124px;
   float: left;
-  position: relative; }
+  position: absolute;
+  top: 542px;
+  left: 0px; }
   .picDetail img {
     float: left;
     width: 50px;
@@ -462,7 +464,7 @@ main .goodsMsg {
 /**友情链接**/
 /**服务**/
 footer {
-  margin-top: 40px; }
+  margin-top: 80px; }
 
 footer section {
   text-align: center; }

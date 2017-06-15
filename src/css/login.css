@@ -4,20 +4,23 @@
 
 main {
   position: relative;
-  background: url(../img/r_bg_02.png) no-repeat right bottom;
+  background: url(../img/l_bg_02.png) no-repeat left top;
   padding: 20px 40px;
   width: 900px;
+  height: 400px;
   border-top: 2px solid #0083CE;
   margin-left: 248px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
 
 main .top p {
-  float: left;
+  float: right;
   font-size: 20px;
-  line-height: 30px; }
+  line-height: 30px;
+  margin-right: 80px; }
 
 main .top span {
-  margin-left: 620px;
+  margin-top: 8px;
+  float: right;
   font-size: 12px; }
   main .top span a {
     color: #0083CE; }
@@ -52,6 +55,9 @@ form p {
   top: 268px; }
 
 main .msg {
+  right: 35px;
+  top: 34px;
+  position: absolute;
   padding-top: 20px; }
   main .msg input {
     padding-left: 38px;
@@ -62,6 +68,7 @@ main .msg {
     font-size: 14px;
     border: 1px solid #f3f3f3; }
   main .msg button {
+    margin-top: 30px;
     margin-left: 40px;
     width: 342px;
     height: 40px;

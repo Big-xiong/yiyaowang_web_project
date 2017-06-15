@@ -1,5 +1,5 @@
 require(['config'],function(){
-	require(['jquery','common'],function($,com){
+	require(['jquery','common','lazyload'],function($,com){
 		// 生成送货地址
 		var $top = $('#top');
 		var date = new Date();
@@ -55,15 +55,15 @@ require(['config'],function(){
 				for(var i =0 ;i<data.length;i++){
 					if(data[i].comment === null){
 						var $li = $('<li/>').data('id',data[i].id);
-						var $img = $('<img>').attr({src:'../'+data[i].imgurl});
-						$('<a/>').append($img).appendTo($li);
+						var $img = $('<img class="lazy" width="200" height="200">').attr('data-original','../'+data[i].imgurl);
+						$('<a/>').append($img).appendTo($li).attr({href:'../html/detail.html?id='+data[i].id});
 						$('<p/>').text('￥'+data[i].price).addClass('price').appendTo($li);
 						$('<p/>').text(data[i].title).addClass('title').appendTo($li);
 						$('<button/>').text('添加购物车').appendTo($li);
 					}else{
 						var $li = $('<li/>').data('id',data[i].id);
-						var $img = $('<img>').attr({src:'../'+data[i].imgurl});
-						$('<a/>').append($img).appendTo($li);
+						var $img = $('<img class="lazy" width="200" height="200">').attr('data-original','../'+data[i].imgurl);
+						$('<a/>').append($img).appendTo($li).attr({href:'../html/detail.html?id='+data[i].id});
 						$('<p/>').text('￥'+data[i].price).addClass('price').appendTo($li);
 						$('<p/>').text(data[i].title).addClass('title').appendTo($li);
 						$('<span/>').text('评论:'+data[i].comment).appendTo($li);
@@ -71,6 +71,10 @@ require(['config'],function(){
 					}
 					$goodslist.append($li);
 				}
+				$('img.lazy').lazyload({
+					effect:'fadeIn',
+					threshold :300
+				});
 				$goodslist.on('click','button',function(){
 					var $currli = $(this).parent();
 					var currId = $currli.data('id');

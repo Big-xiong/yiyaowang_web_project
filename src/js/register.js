@@ -160,7 +160,7 @@ require(['config'],function(){
 					success:function(res){
 						console.log(res);
 						if(res === 'ok'){
-							alert('恭喜您注册成功');	
+							alert('恭喜您注册成功，快去登录吧');	
 						}else if(res === 'no'){
 							alert('该手机号已被注册');
 						}

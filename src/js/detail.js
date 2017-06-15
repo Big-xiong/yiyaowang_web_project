@@ -42,6 +42,30 @@ require(['config'],function(){
  			}
 		});
 
+		// 根据数据生成商品详情
+		var str = location.search.slice(1);
+		var arr = str.split('=');
+		var goodsId = arr[1];
+
+		$.ajax({
+			url:'../api/goodslist.php',
+			dataType:'json',
+			async:false,
+			success:function(res){
+				for(var i=0;i<res.length;i++){
+					if(res[i].id == goodsId){
+						$('.mid').data('id',goodsId);
+						$('<p/>').text('药网价:').addClass('price').prependTo($('.mid'));
+						$('<h1/>').text(res[i].title).prependTo($('.mid'));
+						$('<span/>').text(res[i].price).appendTo($('.price'));
+						$('<img/>').attr({src:'../'+res[i].imgurl}).attr('data-big','../'+res[i].imgurl).appendTo($('.goodsPic'));
+						$('<img/>').attr({src:'../'+res[i].imgurl}).appendTo($('.picDetail'));
+					}
+				}
+			}
+		});
+		//console.log(arr);
+
 		// 商品放大镜
 		var $goodsMsg = $('.goodsMsg');
 		var $goodsPic = $('.goodsPic');
@@ -289,8 +313,6 @@ require(['config'],function(){
 				return this;
 			}
 		}
-
-
 		new CarList(-100,-402,$sidebar.children().eq(1),goodsList,numb);
 
 		// 获取商品总数

@@ -2,4 +2,4 @@
 .Bx-zoom img{display:block;}
 .Bx-zoom .minzoom{display:none;position: absolute;width:30px;height:30px;border:1px solid #f3f3f3;background-color:#ff0;background-color: rgba(255,255,225,.3);filter:alpha(Opacity=30);}
 .Bx-bigzoom{display:none;position: absolute;width:400px;height:300px;overflow: hidden;}
-.Bx-bigzoom img{position: absolute;left:0;right:0;}
+.Bx-bigzoom img{position: absolute;left:0;right:0;height:800px;width: 800px;}

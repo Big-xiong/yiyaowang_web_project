@@ -5,17 +5,19 @@ $border:1px solid #f3f3f3;
 #search .logo{padding-left:248px;float:left;}
 main{
 	position:relative;
-	background:url(../img/r_bg_02.png) no-repeat right bottom;
+	background:url(../img/l_bg_02.png) no-repeat left top;
 	padding: 20px 40px; 
 	width: 900px;
+	height: 400px;
 	border-top: 2px solid $mc;
 	margin-left: 248px;
 	box-shadow:0 4px 10px rgba(0,0,0,.1);	
 }
 main .top{
-	p{float: left; font-size: 20px;line-height: 30px;}
+	p{float: right; font-size: 20px;line-height: 30px;margin-right: 80px;}
 	span{
-		margin-left: 620px;
+		margin-top: 8px;
+		float: right;
 		font-size: 12px;
 		a{
 			color: $mc;
@@ -52,6 +54,9 @@ form p{
 	top:268px;
 }
 main .msg{
+	right:35px;
+	top:34px;
+	position: absolute;
 	padding-top: 20px;
 	input{
 		padding-left: 38px;
@@ -63,6 +68,7 @@ main .msg{
 		border: $border;
 	}
 	button{
+		margin-top: 30px;
 		margin-left: 40px;
 		width: 342px;
 		height: 40px;
