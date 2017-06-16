@@ -1,13 +1,13 @@
 require(['config'],function(){
-	require(['jquery','common','lazyload'],function($,com){
+	require(['jquery','common','car','lazyload'],function($,com,car){
 		// 生成送货地址
 		var $top = $('#top');
+		var $ol = $('ol');
 		var date = new Date();
 		$.ajax({
 			url:'../api/address.php',
 			dataType:'json',
 			success:function(data){
-				var $ol = $('ol');
 				for(var i=0;i<data.length;i++){
 					var $li = $('<li/>');
 					var $span = $('<span/>').text(data[i].letter);
@@ -20,25 +20,27 @@ require(['config'],function(){
 				}
 
 				$('.address').on('mouseover',function(){
-					$ol.css({display:'block'});
-					$('.address').css({backgroundColor:'#fff'});
-					$top.find('i').css({transform:'rotate(90deg)',right: 3});
+					show();
 				}).on('mouseout',function(){
-					$ol.css({display:'none'});
-					$('.address').css({backgroundColor:'#f8f8f8'});
-					$top.find('i').css({transform:'rotate(270deg)',right: 0});
+					hide();
 				});
 				$ol.on('mouseover',function(){
-					$('.address').css({backgroundColor:'#fff'});
-					$ol.css({display:'block'});
-					$top.find('i').css({transform:'rotate(90deg)',right: 3});
+					show();
 				}).on('mouseout',function(){
-					$ol.css({display:'none'});
-					$('.address').css({backgroundColor:'#f8f8f8'});
-					$top.find('i').css({transform:'rotate(270deg)',right: 0});
+					hide();
 				});
  			}
 		});
+		function show(){
+			$ol.css({display:'block'});
+			$('.address').css({backgroundColor:'#fff'});
+			$top.find('i').css({transform:'rotate(90deg)',right: 3});
+		}
+		function hide(){
+			$ol.css({display:'none'});
+			$('.address').css({backgroundColor:'#f8f8f8'});
+			$top.find('i').css({transform:'rotate(270deg)',right: 0});
+		}
 
 		// 利用cookies生成购物车商品信息
 		var $smallCar = $('.smallCar');
@@ -91,7 +93,7 @@ require(['config'],function(){
 							id:currId,
 							imgurl:$currli.find('img').attr('src'),
 							title:$currli.children('.title').text(),
-							price:$currli.children('.price').text(),
+							price:$currli.children('.price').text().slice(1)*1,
 							qty:1,
 						}
 						goodsList.push(goods);
@@ -124,19 +126,19 @@ require(['config'],function(){
 		}
 
 		// 面向对象创建购物车列表
-		var numb = $sidebar.children().eq(1).find('i').text();
-		function CarList(top,left,ele,msg,numb){
+
+		/*function CarList(top,left,ele,msg){
 			this.top = top;
 			this.left = left;
 			this.width = 400;
 			this.height = 240;
 			this.ele = ele;
 			this.msg = msg;
-			this.init(numb); 
+			this.init(); 
 		}
 
 		CarList.prototype ={
-			init:function(numb){
+			init:function(){
 				var $carList = $('<ul/>').css({width:this.width,height:this.height,border:'1px solid #f00',position:'absolute',top:this.top,left:this.left,display:'none',backgroundColor:'#fff',overflow:'auto'});
 				var arr = this.msg;
 				var currP = this.ele;
@@ -198,21 +200,7 @@ require(['config'],function(){
 								break;
 							}
 						}
-						var total =0;
-						var totalPrice = 0;
-						for(var j=0;j<arr.length;j++){
-							total += arr[j].qty;
-							var str = arr[j].price;
-							var pricNum = str.slice(1)*1;
-							totalPrice += pricNum*arr[j].qty;
-						}
-						//console.log(total);
-						$total.find('span').text(total);
-						$sidebar.find('i').text(total);
-						$smallCar.find('i').text(total);
-						com.setCookie('goodsList',JSON.stringify(arr),date,'/');
-						totalPrice += currPri;
-						$totalPrice.find('span').text(totalPrice.toFixed(2));
+						this.totalPrice(arr);
 					}
 				});
 
@@ -222,8 +210,31 @@ require(['config'],function(){
 						var currli = $(this).parent('li');
 						var currId = currli.data('id');
 						var currPri = currli.find('.price').text().slice(1)*1;
-						if( currli.find('input').val() <= 0){
-							$carList.html('<li style="text-align:center;font-size:14px">您的购物车空空如也</li>');
+						if( currli.find('input').val() <= 1){
+							//$carList.html('<li style="text-align:center;font-size:14px">您的购物车空空如也</li>');
+							currli.remove();
+				
+							var total =0;
+							var totalPrice = 0;
+							for(var j=0;j<arr.length;j++){
+								total += arr[j].qty;
+								var str = arr[j].price;
+								var pricNum = str.slice(1)*1;
+								totalPrice += pricNum*arr[j].qty;
+							}
+			
+							for(var i = 0;i<arr.length;i++){
+								if(arr[i].id == currId){
+									arr.splice(i,1);
+								}
+							}
+							$total.find('span').text(total-1);
+							$sidebar.find('i').text(total-1);
+							$smallCar.find('i').text(total-1);
+							com.setCookie('goodsList',JSON.stringify(arr),date,'/');
+							totalPrice -= currPri;
+							$totalPrice.find('span').text(totalPrice.toFixed(2));
+
 						}else{
 							for(var i = 0;i<arr.length;i++){
 								if(arr[i].id == currId){
@@ -233,21 +244,7 @@ require(['config'],function(){
 									break;
 								}
 							}
-							var total =0;
-							var totalPrice = 0;
-							for(var j=0;j<arr.length;j++){
-								total += arr[j].qty;
-								var str = arr[j].price;
-								var pricNum = str.slice(1)*1;
-								totalPrice += pricNum*arr[j].qty;
-							}
-							
-							$total.find('span').text(total);
-							$sidebar.find('i').text(total);
-							$smallCar.find('i').text(total);
-							com.setCookie('goodsList',JSON.stringify(arr),date,'/');
-							totalPrice -= currPri;
-							$totalPrice.find('span').text(totalPrice.toFixed(2));
+							this.totalPrice(arr);
 						}
 					}
 				});
@@ -260,11 +257,28 @@ require(['config'],function(){
 				});
 
 				return this;
+			},
+			totalPrice:function(arr){
+				var total =0;
+				var totalPrice = 0;
+				for(var j=0;j<arr.length;j++){
+					total += arr[j].qty;
+					var str = arr[j].price;
+					var pricNum = str.slice(1)*1;
+					totalPrice += pricNum*arr[j].qty;
+				}
+				$total.find('span').text(total);
+				$sidebar.find('i').text(total);
+				$smallCar.find('i').text(total);
+				com.setCookie('goodsList',JSON.stringify(arr),date,'/');
+				totalPrice += currPri;
+				$totalPrice.find('span').text(totalPrice.toFixed(2));
 			}
-		}
-
-
-		new CarList(-100,-402,$sidebar.children().eq(1),goodsList,numb);
+		}*/
+		//var b1 = new CarList(-100,-402,$sidebar.children().eq(1),goodsList);
+		
+		//将购物车定义成模块来使用
+		car.init(-100,-402,$sidebar.children().eq(1),goodsList,$smallCar);
 
 		// 获取商品总数
 		function total(array){
@@ -278,7 +292,7 @@ require(['config'],function(){
 		total(goodsList);
 
 		// 吸顶搜索导航
-		var $Mouting = $('<div/>').addClass('mouting').css({display:'none'}).appendTo('#search');
+		var $Mouting = $('<div/>').addClass('mouting').appendTo('#search');
 		$('.vNav').clone().appendTo($Mouting);
 		$('.mainSearch').clone().appendTo($Mouting);
 		$(window).on('scroll',function(){

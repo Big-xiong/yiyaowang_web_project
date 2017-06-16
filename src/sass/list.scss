@@ -234,6 +234,7 @@ $border:1px solid #f3f3f3;
 #search .mainSearch ul li{float: left;}
 #search .mainSearch ul li a{padding: 0 4px;}
 #search .mouting{
+	display: none;
 	width: 100%;
 	z-index: 2000;
 	position: fixed;

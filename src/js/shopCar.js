@@ -83,7 +83,7 @@ require(['config'],function(){
 				// 生成cookie中的商品信息
 				$carList.html(arr.map(function(item){
 						var str = item.price;
-						var pricNum = str.slice(1)*1;
+						var pricNum = str*1;
 						var smallTol = pricNum*item.qty;
 						smallTol = smallTol.toFixed(2);
 						return `
@@ -108,7 +108,7 @@ require(['config'],function(){
 				for(var i=0;i<arr.length;i++){
 					total+= arr[i].qty;
 					var str = arr[i].price;
-					var pricNum = str.slice(1)*1;
+					var pricNum = str*1;
 					totalPrice += pricNum*arr[i].qty;
 				}
 
@@ -124,7 +124,7 @@ require(['config'],function(){
 					if($(this).attr('class') === 'addGoods'){
 						var currli = $(this).parent('li');
 						var currId = currli.data('id');
-						var currPri = currli.find('.price').text().slice(1)*1;
+						var currPri = currli.find('.price').text()*1;
 
 						// 增加当前商品的数量
 						for(var i = 0;i<arr.length;i++){
@@ -151,13 +151,13 @@ require(['config'],function(){
 						for(var j=0;j<arr.length;j++){
 							total += arr[j].qty;
 							var str = arr[j].price;
-							var pricNum = str.slice(1)*1;
+							var pricNum = str*1;
 							totalPrice += pricNum*arr[j].qty;
 						}
 						//console.log(total);
 						$total.find('span').text(total);
 						com.setCookie('goodsList',JSON.stringify(arr),date,'/');
-						totalPrice += currPri;
+						//totalPrice += currPri;
 						$totalPrice.find('span').text(totalPrice.toFixed(2));
 					}
 				});
@@ -167,9 +167,9 @@ require(['config'],function(){
 					if($(this).attr('class') === 'subGoods'){
 						var currli = $(this).parent('li');
 						var currId = currli.data('id');
-						var currPri = currli.find('.price').text().slice(1)*1;
+						var currPri = currli.find('.price').text()*1;
 						if( currli.find('input').val() <= 1){
-							$('subGoods').attr({disabled:''});
+							$('subGoods').attr({disabled:false});
 						}else{
 
 							// 减少当前商品的数量
@@ -197,13 +197,13 @@ require(['config'],function(){
 							for(var j=0;j<arr.length;j++){
 								total += arr[j].qty;
 								var str = arr[j].price;
-								var pricNum = str.slice(1)*1;
+								var pricNum = str*1;
 								totalPrice += pricNum*arr[j].qty;
 							}
 							
 							$total.find('span').text(total);
 							com.setCookie('goodsList',JSON.stringify(arr),date,'/');
-							totalPrice -= currPri;
+							//totalPrice -= currPri;
 							$totalPrice.find('span').text(totalPrice.toFixed(2));
 						}
 					}
@@ -218,7 +218,18 @@ require(['config'],function(){
 							arr.splice(i,1);
 						}
 					}
+					var total =0;
+					var totalPrice = 0;
+					for(var j=0;j<arr.length;j++){
+						total += arr[j].qty;
+						var str = arr[j].price;
+						var pricNum = str*1;
+						totalPrice += pricNum*arr[j].qty;
+					}
+					$total.find('span').text(total);
 					com.setCookie('goodsList',JSON.stringify(arr),date,'/');
+					$totalPrice.find('span').text(totalPrice.toFixed(2));
+					listHeight(arr);
 				});
 
 				return this;
@@ -227,12 +238,16 @@ require(['config'],function(){
 		new CarList(240,124,$car,goodsList);
 
 		$(window).on('scroll',function(){
+			listHeight(goodsList);
+		});	
+		
+		function listHeight(goodsList){
 			var len = goodsList.length-7;
 			if(window.scrollY <=len*101+226 ){
 				$('.bottom').css({position:'fixed',bottom:0,left:124,});
 			}else if(window.scrollY >len*101+226 ){
 				$('.bottom').css({position:'absolute',left:124,bottom:-$('.bottom').parent().outerHeight() + 500});
-			}
-		});	
+			}	
+		}
 	});
 });

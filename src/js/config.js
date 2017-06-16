@@ -6,11 +6,13 @@ require.config({
 		'BxCarousel':'../lib/jquery-BxCarousel/jquery.BxCarousel',
 		'BxZoom':'../lib/jquery-BxZoom/jquery.BxZoom',
 		'common':'common_module',
-		'lazyload':'../lib/jquery.lazyload.min'
+		'lazyload':'../lib/jquery.lazyload.min',
+		'car':'car'
 	},
 	shim:{
 		'BxCarousel':['jquery'],
 		'BxZoom':['jquery'],
-		'lazyload':['jquery']
+		'lazyload':['jquery'],
+		'car':['jquery','common']
 	}
 });
