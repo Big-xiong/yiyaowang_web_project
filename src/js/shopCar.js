@@ -115,7 +115,7 @@ require(['config'],function(){
 				// 生成底部结构
 				$total = $('<p/>').html('共<span style="color:#f00">'+total+'</span>件商品').addClass('total').appendTo($li);
 				$totalPrice = $('<p/>').html('合计:<span style="color:#f00">￥'+totalPrice.toFixed(2)+'<span/>').addClass('totalPrice').appendTo($li);
-				var $calBtn = $('<button/>').html('<a>去结算</a>').appendTo($li);
+				var $calBtn = $('<button/>').html('<a href="../html/login.html">去结算</a>').appendTo($li);
 				var $goBuy = $('<button/>').html('<a href="../index.html">继续购物</a>').appendTo($li).addClass('goBuy');
 				$li.appendTo($carList);
 					
@@ -240,7 +240,7 @@ require(['config'],function(){
 		$(window).on('scroll',function(){
 			listHeight(goodsList);
 		});	
-		
+
 		function listHeight(goodsList){
 			var len = goodsList.length-7;
 			if(window.scrollY <=len*101+226 ){
