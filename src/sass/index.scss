@@ -252,23 +252,37 @@ header .vNav{
 			line-height: 36px;
 		}
 		li{
-			:before{
+			transition: margin-left 0.2s;
+			transition-timing-function: linear;
+			height: 40px;
+			position:relative;
+			a:before{
 				content:'';
 				display: block;
-				background:url(../css/img/yao.png) no-repeat;
+				background:url(../img/yao.fw.png) no-repeat;
 				width: 40px;
 				height: 40px;
-				background-size: 30px 30px;
-				background-position: 10px 4px;
+				background-size: 128px 70px;
+				background-position: 9px 6px;
 				position: absolute;
-				
+				left:2px;
 			}
 			a{
-				font-size: 14px;
+				position: absolute;
+				font-size: 12px;
 				color: #fff;
 				padding-left: 48px;
 				line-height: 40px;
-
+			}
+		}
+		li:hover{
+			margin-left: 10px;
+			background-color: #fff;
+			a{
+				color: $mc;
+			}
+			a:before{
+				background-position: 9px -30px;
 			}
 		}
 	}
@@ -663,5 +677,36 @@ footer .mainlink dl{
 		display: block;
 		overflow:auto;
 		height: 190px;
+	}
+}
+.louTi{
+	background-color: #fff;
+	position: fixed;
+	margin-top: -230px;
+	top:50%;
+	left:40px;
+	border:$border;
+	li{
+		width: 50px;
+		height: 50px;
+		border-bottom: $border;
+		.num{
+			text-align: center;
+			line-height: 50px;
+			display: block;
+		}
+		.name{
+			padding-top: 6px;
+			font-size: 14px;
+			text-align: center;
+			display: none;
+			width: 50px;
+			height: 50px;
+			color: #fff;
+			background-color: $mc;
+		}
+	}
+	li:last-child{
+		border-bottom: 0;
 	}
 }

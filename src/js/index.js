@@ -183,5 +183,66 @@ require(['config'],function(){
 			$smallCar.find('i').text(total);	
 		}
 		total(goodsList);
+
+		// 楼梯效果
+		$.ajax({
+			url:'../api/loucen.php',
+			dataType:'json',
+			success:function(data){
+				//console.log(data);
+				$('<ul/>').addClass('louTi').appendTo('body');
+				$('.louTi').html(data.map(function(item){
+					return`
+						<li>
+							<span class="num">${item.id}F</span>
+							<span class="name">${item.name.slice(3)}</span>
+						</li>
+					`
+				}));
+				// 滚动效果
+				$(window).on('scroll',function(){
+					
+					//console.log(window.scrollY);
+					if(window.scrollY >= Floor(0) && window.scrollY < Floor(1)){
+						floorShow(0);
+					}
+					else if(window.scrollY >= Floor(1) && window.scrollY < Floor(2)){
+						floorShow(1);
+					}
+					else if(window.scrollY >= Floor(2) && window.scrollY < Floor(3)){
+						floorShow(2);
+					}else if(window.scrollY >= Floor(3) && window.scrollY < Floor(4)){
+						floorShow(3);
+					}else if(window.scrollY >= Floor(4) && window.scrollY < Floor(5)){
+						floorShow(4);
+					}else if(window.scrollY >= Floor(5) && window.scrollY < Floor(6)){
+						floorShow(5);
+					}else if(window.scrollY >= Floor(6) && window.scrollY < Floor(7)){
+						floorShow(6);
+					}else if(window.scrollY >= Floor(7) && window.scrollY < Floor(8)){
+						floorShow(7);
+					}else if(window.scrollY >= Floor(8)){
+						floorShow(8);
+					}
+				});
+				// 点击效果
+				$('.louTi').on('click','li',function(){
+					var index = $(this).index();
+					$('body').animate({scrollTop:Floor(index)});
+				});
+			}
+		});
+
+		// 计算每个楼层距离父元素的高度
+		function Floor(i){
+			return $('main').children('.firFloor').eq(i).offset().top-200;	
+		}
+		//显示当前楼层信息
+		function floorShow(i){
+			$('.louTi').children().eq(i).children('.num').css('display','none');
+			$('.louTi').children().eq(i).children('.name').css('display','block');
+			$('.louTi').children().eq(i).siblings().children('.num').css('display','block');
+			$('.louTi').children().eq(i).siblings().children('.name').css('display','none');
+		}
 	});
 });

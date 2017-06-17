@@ -301,20 +301,34 @@ header .vNav {
       font-size: 16px;
       padding-left: 14px;
       line-height: 36px; }
-    header .vNav ul li :before {
-      content: '';
-      display: block;
-      background: url(../css/img/yao.png) no-repeat;
-      width: 40px;
+    header .vNav ul li {
+      transition: margin-left 0.2s;
+      transition-timing-function: linear;
       height: 40px;
-      background-size: 30px 30px;
-      background-position: 10px 4px;
-      position: absolute; }
-    header .vNav ul li a {
-      font-size: 14px;
-      color: #fff;
-      padding-left: 48px;
-      line-height: 40px; }
+      position: relative; }
+      header .vNav ul li a:before {
+        content: '';
+        display: block;
+        background: url(../img/yao.fw.png) no-repeat;
+        width: 40px;
+        height: 40px;
+        background-size: 128px 70px;
+        background-position: 9px 6px;
+        position: absolute;
+        left: 2px; }
+      header .vNav ul li a {
+        position: absolute;
+        font-size: 12px;
+        color: #fff;
+        padding-left: 48px;
+        line-height: 40px; }
+    header .vNav ul li:hover {
+      margin-left: 10px;
+      background-color: #fff; }
+      header .vNav ul li:hover a {
+        color: #0083CE; }
+      header .vNav ul li:hover a:before {
+        background-position: 9px -30px; }
 
 header .hNav {
   border-bottom: 2px solid #0083CE; }
@@ -749,3 +763,30 @@ footer .mainlink dl {
     display: block;
     overflow: auto;
     height: 190px; }
+
+.louTi {
+  background-color: #fff;
+  position: fixed;
+  margin-top: -230px;
+  top: 50%;
+  left: 40px;
+  border: 1px solid #f3f3f3; }
+  .louTi li {
+    width: 50px;
+    height: 50px;
+    border-bottom: 1px solid #f3f3f3; }
+    .louTi li .num {
+      text-align: center;
+      line-height: 50px;
+      display: block; }
+    .louTi li .name {
+      padding-top: 6px;
+      font-size: 14px;
+      text-align: center;
+      display: none;
+      width: 50px;
+      height: 50px;
+      color: #fff;
+      background-color: #0083CE; }
+  .louTi li:last-child {
+    border-bottom: 0; }
