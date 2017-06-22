@@ -9,7 +9,8 @@ require(['config'],function(){
 			var psw  = $('.psw').val();*/
 			//console.log($('.phone').val());
 			$.ajax({
-				url:'../api/login.php',
+				type:'get',
+				url:'http://localhost:8008/',
 				data:{
 					phone:$('.phone').val(),
 					password:$('.psw').val()

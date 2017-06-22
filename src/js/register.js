@@ -152,6 +152,7 @@ require(['config'],function(){
 		$regBtn.on('click',function(){
 			if( $('.pswicon1').css('display') == 'block' && $('.pswicon2').css('display') == 'block' && $('.pswicon3').css('display') == 'block' && $('#read').is(':checked')){
 				$.ajax({
+					type:'get',
 					url:'../api/reg.php',
 					data:{
 						phone:$('.phone').val(),

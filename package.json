@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "browser-sync": "^2.18.12",
+    "express": "^4.15.3",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.4.1",
     "gulp-concat": "^2.6.1",
